@@ -80,7 +80,9 @@
     clinfo
     vulkan-tools
     vdpauinfo
-    libva-utils
+    libva-utils  
+
+
   ];
 
   # This value determines the NixOS release from which the default

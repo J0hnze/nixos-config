@@ -15,8 +15,8 @@
 
     nixos-enter --root '/mnt'
 
-    passwd cjdell
+    passwd john
 
     exit
 
-    mv /home/nixos/nixos-config /mnt/home/cjdell/
+    mv /home/nixos/nixos-config /mnt/home/john/

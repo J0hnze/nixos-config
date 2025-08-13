@@ -23,20 +23,21 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "gb";
-    variant = "";
+    variant = "mac";
   };
 
   # Enable sound with pipewire.
-  services.pulseaudio.enable = false;
+  services.pulseaudio.enable = true;
+  services.pipewire.enable = false;
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+  #services.pipewire = {
+  # enable = true;
+  #  alsa.enable = true;
+  #  alsa.support32Bit = true;
+  #  pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
-  };
+  #};
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -66,10 +67,9 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # GUI Things
-    vscode
+    
     appimage-run
     geekbench
-    google-chrome
     kdePackages.kate
     bottles
     xorg.xhost
@@ -77,12 +77,29 @@
     ddcutil
     imsprog
     zed-editor
-    moonlight-qt
-    remmina
+    
+    #Browsers
+  # google-chrome
+  # brave
+    
+    #Socials
+    slack
+    signal-desktop
+    telegram-desktop
+    
+    #Programming
+    vscode
+    python314
+    go
+    hugo
 
+    # Utils
+    obsidian
+    
     # GPU Related Stuff
     furmark
     mesa-demos
+ 
   ];
 
 }

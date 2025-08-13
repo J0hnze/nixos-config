@@ -5,5 +5,5 @@
     ./hardware-configuration.nix
   ];
 
-  networking.hostName = "hp-elitedesk-ryzen-2400-nixos"; # Define your hostname.
+  networking.hostName = "apple-macbook-pro-14-1"; # Define your hostname.
 }
