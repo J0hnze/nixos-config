@@ -41,7 +41,7 @@
       pkgs.intel-vaapi-driver # LIBVA_DRIVER_NAME=i965 (older but works better for Firefox/Chromium)
       pkgs.libvdpau-va-gl
       pkgs.ocl-icd
-      pkgs.displaylink
+      # pkgs.displaylink
       # pkgs.mesa
       # pkgs.mesa.drivers
     ];

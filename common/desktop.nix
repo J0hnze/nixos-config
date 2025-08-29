@@ -22,7 +22,7 @@
 
   # Configure keymap in X11
   services.xserver.xkb = {
-    layout = "us";
+    layout = "gb";
     variant = "mac";
   };
 
@@ -94,6 +94,7 @@
     hugo
 
     # Utils
+    gparted
     obsidian
     
     # GPU Related Stuff

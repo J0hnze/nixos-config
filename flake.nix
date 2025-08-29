@@ -58,6 +58,7 @@
             modules = [
               ./common/desktop.nix
               ./common/system.nix
+              #./common/aliases.nix
               #./common/nfs.nix
               ./machines/apple-macbook-pro-14-1
               ./users/john
