@@ -57,11 +57,17 @@
   # sudo ddcutil detect --verbose
   # sudo ddcutil getvcp known
   # sudo ddcutil setvcp 100 50 --display 1
-  boot.extraModulePackages = [ config.boot.kernelPackages.ddcci-driver ];
+  boot.extraModulePackages = with config.boot.kernelPackages; [ 
+    broadcom_sta
+    #ddcci-driver
+  ];
+
   boot.kernelModules = [
     "i2c-dev"
     "ddcci_backlight"
   ];
+
+
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
