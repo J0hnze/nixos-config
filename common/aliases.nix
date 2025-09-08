@@ -1,69 +1,68 @@
+{ config, pkgs, ... }:
 
-  programs.bash.shellAliases = {
-    # Make some possibly destructive commands more interactive.
-    alias rm='rm -i'
-    alias mv='mv -i'
-    alias cp='cp -i'
+{
+  environment.shellAliases = {
+
+# Make some possibly destructive commands more interactive.
+
+    rm="rm -i";
+    mv="mv -i";
+    cp="cp -i";
 
     # GIT Stuff
-
-    alias gstat='git status'
-    alias glog='git log'
-    alias _first-commit="git commit --allow-empty -m 'WIP: Initial Commit'"
-    alias _get-keys="curl https://github.com/ponix4k.keys >> ~/.ssh/authorized_keys"
+    gstat="git status";
+    glog="git log";
+    _first-commit="git commit --allow-empty -m 'WIP: Initial Commit'";
+    _get-keys="curl https://github.com/Johnze.keys >> ~/.ssh/authorized_keys";
 
     # Ruby Installer Stuff
 
-    alias _rbenv-installer='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash'
-    alias _rbenv-doc='curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash'
+    _rbenv-installer="curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-installer | bash";
+    _rbenv-doc="curl -fsSL https://github.com/rbenv/rbenv-installer/raw/HEAD/bin/rbenv-doctor | bash";
 
     # Rails Stuff
-
-    alias _Rup!='rails s -b 0.0.0.0'
-    alias _Rdb-setup='rails db:setup'
-    alias _Rdb-create='rails db:create'
-    alias _Rdb-migrate='rails db:migrate'
+    _Rup ="rails s -b 0.0.0.0";
+    _Rdb-setup="rails db:setup";
+    _Rdb-create="rails db:create";
+    _Rdb-migrate="rails db:migrate";
 
     # Postgres
-
-    alias _kpg="sudo service postgresql status && sudo service postgresql stop && sudo service postgresql status"
-    alias _upg="sudo service postgresql start"
-
-    # Docker
-    alias DC="docker-compose"
-    alias DCRW="docker-compose run --rm web"
-
-    #System Commands
-
-    alias _full_update="sudo apt-get update && sudo apt-get -y upgrade --allow-downgrades && sudo apt autoremove -y && sudo apt dist-upgrade && sudo apt autoclean -y"
-    alias _list_aliases="cat ~/.bash_aliases"
-    alias c!="clear"
-    alias r!="sudo reboot"
+    _kpg="sudo service postgresql status && sudo service postgresql stop && sudo service postgresql status";
+    _upg="sudo service postgresql start";
 
     # Security Stuff
-
-    alias _user="echo '$(whoami)@$(hostname)'"
-    alias mk-pass="openssl rand -base64 30"
-    alias mk-ssh-key-ed25519="ssh-keygen -t ed25519 -C `_user`"
-    alias mk-ssh-key-rsa="ssh-keygen -t rsa -b 4096 -C `_user`"
-
+    _user="echo '$(whoami)@$(hostname)'";
+    mk-pass="openssl rand -base64 30";
+    mk-ssh-key-ed25519="ssh-keygen -t ed25519 -C `_user`";
+    mk-ssh-key-rsa="ssh-keygen -t rsa -b 4096 -C `_user`";
 
     #Misc
-
-    alias apt='sudo apt'
-    alias df='df -h'
+    apt="sudo apt";
+    df="df -h";
 
     # GREP
-    alias egrep='egrep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias gh='history | grep'
-    alias grep='grep --color=auto'
+    egrep="egrep --color=auto";
+    fgrep="fgrep --color=auto";
+    gh="history | grep";
+    grep="grep --color=auto";
 
     # LS
+    la="ls -A";
+    ll="ls -latr";
+    ls="ls --color=auto";
+    myip="curl ipinfo.io/ip";
+    
+    # Nix
+    _ns = "sudo nixos-rebuild switch";
+    _nr = "sudo nixos-rebuild boot";
+    _nc = "nix-collect-garbage -d";
 
-    alias l='ls -CF'
-    alias la='ls -A'
-    alias ll='ls -latr'
-    alias ls='ls --color=auto'
-    alias myip='curl ipinfo.io/ip'
+    # Networking
+    ip = "ip -c a";
+    ports = "sudo lsof -i -P -n | grep LISTEN";
+
+    # Custom
+    rebuild = "sudo nixos-rebuild switch --flake .#$(hostname)";
+    editcfg = "nvim /etc/nixos/configuration.nix";
   };
+}

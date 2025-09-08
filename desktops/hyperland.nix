@@ -6,8 +6,6 @@
   services.xserver.enable = true;         # for Xwayland
   services.xserver.displayManager.gdm.enable = true;
 
-
-
   # Audio
   services.pulseaudio.enable = false;
   services.pipewire = {

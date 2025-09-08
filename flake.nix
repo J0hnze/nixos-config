@@ -35,6 +35,7 @@
             inherit system;
             config = {
               allowUnfree = true;
+              # Broadcom driver for MacOS
               permittedInsecurePackages = [
                 "broadcom-sta-6.30.223.271-57-6.12.41"
                 ];
@@ -61,10 +62,11 @@
             modules = [
               ./common/desktop.nix
               ./common/system.nix
-              #./common/aliases.nix
+              ./common/aliases.nix
               #./common/nfs.nix
               ./machines/apple-macbook-pro-14-1
               ./users/john
+              ./common/tools.nix
               { nix.registry.nixpkgs.flake = nixpkgs; } # For "nix shell"
               home-manager.nixosModules.home-manager
               home-manager-prefs

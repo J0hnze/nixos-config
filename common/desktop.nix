@@ -39,17 +39,10 @@
     #jack.enable = true;
   #};
 
-  # Install firefox.
-  programs.firefox.enable = true;
-
   programs.virt-manager.enable = true;
-
   programs.gnome-disks.enable = true;
-
   virtualisation.libvirtd.enable = true;
-
   virtualisation.spiceUSBRedirection.enable = true;
-
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   # environment.sessionVariables.POWERDEVIL_NO_DDCUTIL = "1";
@@ -66,8 +59,6 @@
     "i2c-dev"
     "ddcci_backlight"
   ];
-
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -87,6 +78,7 @@
     #Browsers
   # google-chrome
   # brave
+    firefox
     
     #Socials
     slack
@@ -106,6 +98,7 @@
     # GPU Related Stuff
     furmark
     mesa-demos
+    #displaylink
  
   ];
 
